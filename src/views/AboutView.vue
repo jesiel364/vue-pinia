@@ -1,15 +1,72 @@
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class='wrapper'>
+
+      <form class='container'>
+          <h1 class='form'>Página Sobre</h1>
+          <h2>Você tem {{ store.age }} anos</h2>
+
+          <router-link to="/">Voltar</router-link>
+      </form>
+
   </div>
 </template>
 
+<script setup>
+import { userConfigs } from '@/stores/sets'
+
+const store = userConfigs()
+const { name, age } = store
+
+
+</script>
+
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+body,
+html {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #283E51, #4B79A1);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #283E51, #4B79A1);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.wrapper {
+
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* background-color: aquamarine; */
+  margin-top:100px;
+
+}
+
+form {
+  background-color: aliceblue;
+  width: 700px;
+  height: 350px;
+  padding: 16px;
+  /* align-items: center; */
+}
+
+@media (max-width: 700px) {
+form {
+  min-width: 100px;
+  display: flex;
+  align-items: top;
+  height: 100vw;
+  
+}
+
+.wrapper{
+  /* height: 100%; */
+}
 }
 </style>
